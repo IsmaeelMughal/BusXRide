@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact us page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contact.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css')}}">
+</head>
+
+<body>
+    <div class="contact-page">
+        <nav class="navbar background">
+            <div class="logo">
+                <img src={{url_for('static',filename='images/logoM.png' )}} alt="logo">
+                <h1 class="logoh">BusXRide</h1>
+            </div>
+
+            <ul class="nav-list nav-links" id="menuList">
+                <!-- <i class="fa fa-times" ></i> -->
+                <li><a onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+                <li><a onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+                <li><a onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a>
+                </li>
+
+            </ul>
+            <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+                onclick="toggleMenu()">
+            <!-- <i class="fa fa-bars" ></i> -->
+        </nav>
+
+
+        <section class="contact-cover">
+            <div class="contact-cover-content-box">
+                <h1> Contact Us</h1>
+                <div class="contact-info">
+                    <div class="phone center">
+                        <img src="{{ url_for('static', filename='images/phone-call.png ')}}" class="center"
+                            width="30px">
+                        <p>042-111-007-008</p>
+                    </div>
+                    <div class="instagram">
+                        <img src="{{ url_for('static', filename='images/instagram.png ')}}" width="30px">
+                        <p>busXride@insta</p>
+                    </div>
+                    <div class="email">
+                        <img src="{{ url_for('static', filename='images/email.png ')}}" width="30px">
+                        <p>busXRide@gmail.com</p>
+                    </div>
+                    <div class="facebook">
+                        <img src="{{ url_for('static', filename='images/facebook.png ')}}" width="30px">
+                        <p>busXRide@facebook.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedback-section">
+            <form action="">
+                <div class="feedback-input-group">
+                    <label for="name"></label>
+                    <input type="text" id="name" name="name" placeholder="Enter your Name">
+                </div>
+                <div class="feedback-input-group">
+                    <label for="email"></label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="feedback-input-group">
+                    <label for="message"></label>
+                    <textarea id="message" rows="8" placeholder="Enter your Feedback"></textarea>
+                </div>
+                <button type="submit" onclick="alert('Thanks For Your Feedback!!!')">Submit</button>
+                <div class="feedback-input-group">
+
+                </div>
+            </form>
+
+        </section>
+        <footer>
+            Copyright &copy: www.BusXRide.com. All rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href) {
+                    link.setAttribute('aria-current', 'page')
+                }
+            })
+
+        var menuList = document.getElementById('menuList');
+
+        function toggleMenu() {
+            if (menuList.style.display == "none") {
+                menuList.style.display = "flex";
+            }
+            else {
+                console.log(menuList.style.maxHeight)
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

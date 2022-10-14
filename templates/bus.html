@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bus.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css')}}">
+</head>
+
+<body>
+    <div class="bus-page">
+        <nav class="navbar background">
+            <div class="logo">
+                <img src={{url_for('static',filename='images/logoM.png')}} alt="logo">
+                <h1 class="logoh">BusXRide</h1>
+            </div>
+
+            <ul class="nav-list nav-links" id="menuList">
+                <!-- <i class="fa fa-times" ></i> -->
+                <li><a onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+                <li><a onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+                <li><a onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a>
+                </li>
+
+            </ul>
+            <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+                onclick="toggleMenu()">
+            <!-- <i class="fa fa-bars" ></i> -->
+        </nav>
+        <div class="main-bus-page-body">
+            <div class="bus-page-header">
+                <h1>Book seats</h1>
+            </div>
+            <div class="bus-seat-reservation-panel">
+                <div class="seats-panel">
+                    <!-- <div class="right-align">
+                        <img src="{{ url_for('static', filename='images/stering.png')}}" width="50" >
+                    </div> -->
+                    <div class="row">
+                        <div class="seat" id="1">1</div>
+                        <div class="seat" id="2">2</div>
+                        <div class="seat"id="3">3</div>
+                        <div class="seat" id="4">4</div>
+                    </div>
+                    <div class="row">
+                        <div class="seat i"id="5">5</div>
+                        <div class="seat" id="6">6</div>
+                        <div class="seat" id="7">7</div>
+                        <div class="seat" id="8">8</div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" id="9">9</div>
+                        <div class="seat" id="10">10</div>
+                        <div class="seat" id="11">11</div>
+                        <div class="seat" id="12">12</div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" id="13">13</div>
+                        <div class="seat" id="14">14</div>
+                        <div class="seat" id="15">15</div>
+                        <div class="seat"  id="16">16</div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" id="17">17</div>
+                        <div class="seat" id="18">18</div>
+                        <div class="seat" id="19">19</div>
+                        <div class="seat" id="20">20</div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" id="21">21</div>
+                        <div class="seat" id="22">22</div>
+                        <div class="seat" id="23">23</div>
+                        <div class="seat" id="24">24</div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" id="25">25</div>
+                        <div class="seat" id="26">26</div>
+                        <div class="seat" id="27">27</div>
+                        <div class="seat" id="28">28</div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" id="29">29</div>
+                        <div class="seat" id="30">30</div>
+                        <div class="seat" id="31">31</div>
+                        <div class="seat" id="32">32</div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" id="33">33</div>
+                        <div class="seat" id="34">34</div>
+                        <div class="seat" id="35">35</div>
+                        <div class="seat" id="36">36</div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" id="37">37</div>
+                        <div class="seat" id="38">38</div>
+                        <div class="seat" id="39">39</div>
+                        <div class="seat" id="40">40</div>
+                    </div>
+                </div>
+                <div class="seats-info-panel">
+                    <ul class="showcase">
+                        <li>
+                            <div class="seat"></div>
+                            <h4>N/A</h4>
+                        </li>
+                        <li>
+                            <div class="seat selected"></div>
+                            <h4>Selected</h4>
+                        </li>
+                        <li>
+                            <div class="seat occupied"></div>
+                            <h4>Occupied</h4>
+                        </li>
+                    </ul>
+                    <div class="seats-current-status">
+                        <p> Per Ticket Price: {{ ticketPrice }}</p>
+                        <p> You have selected : <span id="seat-count"> 0 </span></p>
+                        <p> total price : $<span id="price-total"> 0 </span></p>
+                        <p id="error"> </p>
+                        <button type="submit" onclick="makePayment()">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            Copyright &copy: www.BusXRide.com. All rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        var ticketPrice = {{ticketPrice|tojson}};
+        var seatArray= {{seatArray|tojson}};
+        var userAccountBalance = {{userAccountBalance|tojson}}
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href) {
+                    link.setAttribute('aria-current', 'page')
+                }
+
+            })
+        var menuList = document.getElementById('menuList');
+        
+        
+        function toggleMenu()
+        {
+            
+            if(menuList.style.display == "none")
+            {
+                menuList.style.display = "flex";
+            }
+            else{
+                
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> -->
+    <script type="text/javascript" src="{{ url_for('static', filename='bus.js')}}"></script>
+</body>
+
+</html>

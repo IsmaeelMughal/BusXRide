@@ -1,0 +1,181 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    
+    background-image: linear-gradient(rgb(23 34 29 / 58%), rgb(43 177 84 / 20%)), url('images/bus-station.jpg');
+    width: 100%;
+    max-height: 100vh;
+    background-size: cover; 
+    
+    /* background-position: center; */
+     position: relative; 
+}
+table a{
+    cursor: pointer;
+    color: blue;
+    font-size: large;
+    /* font-weight: 400; */
+}
+table a:hover{
+    cursor: pointer;
+    color: blue;
+    font-size: large;
+    text-decoration: underline;
+    font-weight: 900;
+}
+.registration-form {
+    padding:2%;
+    margin: 10% 35%;
+    width:400px;
+    background-color: rgb(201 201 201);
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    border-radius: 8px;
+    opacity:0.8;
+    transition: 0.1s;
+}
+.login-form {
+    padding:2%;
+    margin: 10% 35% ;
+    width:400px;
+    background-color: rgb(201 201 201);
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    border-radius: 8px;
+    opacity:0.8;
+    transition: 0.1s;
+    
+}
+.login-form:hover ,.registration-form:hover {
+    box-shadow: 12px 12px 2px 1px rgb(1 12 10 / 83%);
+}
+.error{
+    /* background-color: rgb(238, 56, 43); */
+    color: rgb(245, 7, 7);
+    font-weight: bold;
+}
+input[type = "number"]{
+    width: 150%;
+    padding: 6px 11px;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+input[type = "text"]{
+    width: 150%;
+    padding: 6px 11px;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+input[type = "email"]{
+    width: 150%;
+    padding: 6px 11px;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+input[type = "password"], #gender{
+    width: 150%;
+    padding: 6px 11px;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: black;
+  border: none;
+  border-radius: 16px;
+  color: white;
+  padding: 8px 19px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.playfair-font{
+    font-family: 'Playfair Display', serif;
+}
+.light-gray{
+    background-color: rgb(222, 223, 224);
+}
+.center{
+    text-align: center;
+}
+/* .opacity{
+    opacity: 0.6;
+} */
+.white-background{
+    background-color: white;
+
+}
+.display-inline-block{
+    display:inline-block;
+}
+/* .navbar{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-content: space-between;
+    list-style:None;
+    text-decoration: none;
+}
+a.anav {
+    text-decoration: none;
+    color:white;} */
+
+.bg-black{
+    background-color: black;
+}
+.margin{
+    margin: 12px;
+}
+.white-text{
+    color: white;
+}
+@media (max-width:700px) and (min-width:430px) {
+   
+    body {
+        
+        background-image: linear-gradient(rgb(23 34 29 / 58%), rgb(43 177 84 / 20%)), url('images/bus1.jpg');
+        width: 100%;
+        max-height: 100vh;
+        background-size: cover;
+        /* background-size: auto; */
+        background-position: center;
+        position: relative;
+    }
+    .login-form.a{
+        cursor: pointer;
+    }
+    .login-form {
+        padding:2%;
+        margin-top: 12%;
+        margin-left: 0% ;
+        width:380px;
+        background-color: rgb(201 201 201);
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+        border-radius: 8px;
+        opacity:0.8;
+    }
+    .registration-form {
+        padding:2%;
+        margin-top: 12%;
+        margin-left: 0% ;
+        width:400px;
+        background-color: rgb(201 201 201);
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+        border-radius: 8px;
+        opacity:0.8;
+        transition: 0.1s;
+    }
+}

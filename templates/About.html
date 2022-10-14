@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css')}}">
+</head>
+
+<body>
+    <nav class="navbar background">
+        <div class="logo">
+            <img src={{url_for('static',filename='images/logoM.png' )}} alt="logo">
+            <h1 class="logoh">BusXRide</h1>
+        </div>
+
+        <ul class="nav-list nav-links" id="menuList">
+            <!-- <i class="fa fa-times" ></i> -->
+            <li><a onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+            <li><a onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+            <li><a onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a>
+            </li>
+
+        </ul>
+        <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+            onclick="toggleMenu()">
+        <!-- <i class="fa fa-bars" ></i> -->
+    </nav>
+    <div class="about-page">
+
+        <section class="cover-section">
+            <div class="cover-section-content">
+                <h1>BusXRide</h1>
+                <p>We live by our core values every day - Trust, Teamwork, Integrity - and work towards creating value
+                    for all of our stakeholders.</p>
+            </div>
+        </section>
+        <section class="About">
+
+            <div class="about-row">
+                <div class="about-col1">
+                    <!-- <img src="{{ url_for('static', filename='images/yellow-bus.jpg')}}"> -->
+                </div>
+                <div class="about-col2">
+                    <h1>About us</h1><br>
+                    <p>BusXRide has been formed under Rides Corporation with the aim to provide customers with
+                        the luxurious travel that they deserve. We further aim to reform intercity transportation in
+                        Pakistan by making customer journeys easier through technology and data. We provide modern
+                        ways to pay through travel cards and provide information in different formats to help people
+                        move around Pakistan in a much more convenient way. Live travel information is provided
+                        directly by BusXRide and through third party organizations which used the data we
+                        make available to power apps and other services. We understand that constant improvement
+                        in services can only be achieved by listening to, and acting upon customer feedback and by
+                        engaging with communities, representative groups, businesses and many other stakeholders.
+                        Customers are at the heart of what we do, and every journey matters.</p>
+                </div>
+            </div>
+        </section>
+        <section class="services-section">
+            <h1> Services We Provide <h1>
+                    <div class="services">
+                        <div class="services-col1">
+                            <h1>LUXURY & GOLD CLASS BUSES</h1>
+                        </div>
+                        <div class="services-col2">
+                            <h1>COURTEOUS & TRAINED CREW</h1>
+                        </div>
+                        <div class="services-col3">
+                            <h1>REFRESHMENTS</h1>
+                        </div>
+                    </div>
+        </section>
+    </div>
+    <footer>
+        Copyright &copy: www.BusXRide.com. All rights Reserved.
+    </footer>
+    <script>
+
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href) {
+                    link.setAttribute('aria-current', 'page')
+                }
+
+            })
+        var menuList = document.getElementById('menuList');
+
+        function toggleMenu() {
+            if (menuList.style.display == "none") {
+                menuList.style.display = "flex";
+            }
+            else {
+                console.log(menuList.style.maxHeight)
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.bus-page {
+
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgb(4 5 16 / 55%), rgb(4 5 16 / 25%)), url('images/bus1.jpg');
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+}
+
+.main-bus-page-body {
+    width: 100%;
+    min-height: 180vh;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bus-seat-reservation-panel {
+    margin-top: 22px;
+    height: 120vh;
+    width: 70%;
+    display: flex;
+
+}
+
+.bus-page-header h1 {
+    text-align: center;
+    font-style: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 62px;
+    color: white;
+}
+
+.seats-current-status {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    margin-top: 22px;
+    background-color: black;
+    color: white;
+    border-radius: 18px;
+}
+
+.seats-current-status span {
+    color: rgb(220 89 253);
+}
+
+.seats-current-status p {
+    font-style: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 21px;
+}
+
+.seats-panel {
+
+    width: 45%;
+    height: 90%;
+    border: 2px solid black;
+    background-color: black;
+    flex-wrap: wrap;
+    border-top-left-radius: 120px;
+    border-top-right-radius: 120px;
+    margin-right: 22px;
+    margin-left: 22px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.seat {
+    background-color: rgb(53 53 82 / 88%);
+    height: 50px;
+    width: 55px;
+    margin: 3px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+}
+
+.seat.selected {
+    background-color: aqua;
+}
+
+.seat.occupied {
+    background-color: red;
+}
+
+.seat:nth-of-type(2) {
+    margin-right: 55px;
+}
+
+.seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    margin-top: 10%;
+    display: flex;
+    background-color: black;
+    height: 10%;
+    color: white;
+    border-radius: 18px;
+}
+
+.showcase li {
+    display: flex;
+    margin: 0 10px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.seats-current-status button {
+    background-color: #64a75cfc;
+    border: none;
+    font-size: large;
+    border-radius: 16px;
+    color: white;
+    padding: 16px 16px;
+    text-decoration: none;
+    margin: 22px 200px;
+    cursor: pointer;
+    transition: 0.2s;
+
+}
+
+.seats-current-status button:hover {
+    box-shadow: 0 8px 16px 0 rgba(168, 255, 87, 0.2), 0 6px 20px 0 rgba(169, 233, 19, 0.19);
+    transform: scale(1.2);
+}
+
+#error {
+    color: red;
+    font-size: 22px;
+
+}
+
+.right-align {
+    margin-left: 55%;
+
+}
+
+@media (max-width:1027px) {
+    .seat {
+        background-color: rgb(53 53 82 / 88%);
+        max-height: 30px;
+        max-width: 35px;
+        min-height: 10px;
+        min-width: 10px;
+        margin: 3px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        color: white;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .main-bus-page-body {
+        width: 100%;
+        min-height: 180vh;
+        border: 2px solid #000000;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bus-seat-reservation-panel {
+        margin-top: 22px;
+        height: 120vh;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .seats-current-status button {
+        background-color: #64a75cfc;
+        border: none;
+        font-size: small;
+        border-radius: 16px;
+        color: white;
+        padding: auto;
+        text-decoration: none;
+        margin: auto;
+        cursor: pointer;
+        transition: 0.2s;
+
+    }
+
+    .showcase {
+        margin-top: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: black;
+        height: auto;
+        color: white;
+        border-radius: 18px;
+        /* flex-direction: column; */
+    }
+
+    .seats-current-status {
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 40%;
+        margin-top: 10px;
+        background-color: black;
+        color: white;
+        border-radius: 18px;
+    }
+
+    .seats-panel {
+
+        width: auto;
+        height: auto;
+        border: 2px solid black;
+        background-color: black;
+        border-top-left-radius: 120px;
+        border-top-right-radius: 120px;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+}

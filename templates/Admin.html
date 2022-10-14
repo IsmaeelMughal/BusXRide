@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='nav.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='Admin.css')}}">
+
+
+</head>
+
+<body>
+    <div class="header1">
+           <div class="et-3">
+        <nav class="navbar background">
+            <div class="logo">
+             <img src={{url_for('static',filename='images/logoM.png')}} alt="logo">
+                 <h1 class="logoh">BusXRide</h1>
+            </div>
+
+            <ul class="nav-list nav-links" id="menuList">
+                <!-- <i class="fa fa-times" ></i> -->
+                <li><a  onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+                 <li><a onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+                <li><a onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a>
+            </ul>
+             <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+        onclick="toggleMenu()">
+            <!-- <i class="fa fa-bars" ></i> -->
+        </nav>
+            </div>>
+        </nav>
+        <div class="main-box">
+            <div class="S-1">
+                <h3>Welcome  to BusXRide</h3>
+                <p>Here you can modify the default settings of
+                    BusXRide and change the whole site to ur on accord.
+                </p>
+                <div class="crud">
+                    <a onclick="window.location.href='{{ url_for( 'busCrud') }}';" class="btns">MANAGE BUSES</a>
+                     <a onclick="window.location.href='{{ url_for( 'schedule_crud') }}';" class="btns">MANAGE SCHEDULE</a>
+                    <a onclick="window.location.href='{{ url_for( 'routeCrud') }}';" class="btns">MANAGE ROUTES</a>
+                    <a onclick="window.location.href='{{ url_for( 'logout') }}';" class="btns">LOGOUT</a>
+                </div>
+                <div></div>
+            </div>
+            
+            <div class="S-2">
+                  <img src={{url_for('static',filename='images/logo.jpg')}} alt="logo">
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="align">Copyright &copy: www.BusXRide.com. All rights Reserved.</div>
+        </footer>
+    </div>
+
+     <script>
+
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href)
+                {
+                    link.setAttribute('aria-current', 'page')
+                }
+
+            })
+            var menuList = document.getElementById('menuList');
+
+        function toggleMenu()
+        {
+            console.log(menuList.style.maxHeight)
+            if(menuList.style.display == "none")
+            {
+                menuList.style.display = "flex";
+            }
+            else{
+                console.log(menuList.style.maxHeight)
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+<script>
+function myFunction(x) {
+  if (!x.matches) { // If media query matches
+    menuList.style.display = "flex";
+  }
+}
+console.log("Hello")
+var x = window.matchMedia("(max-width: 700px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+</script>
+
+
+</body>
+
+</html>

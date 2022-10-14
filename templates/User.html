@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusXRide-UserPage</title>
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='User.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='nav.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <section class="UserBg">
+        <div class="et-3">
+        <nav class="navbar background">
+            <div class="logo">
+             <img src={{url_for('static',filename='images/logoM.png')}} alt="logo">
+                 <h1 class="logoh">BusXRide</h1>
+            </div>
+
+            <ul class="nav-list nav-links" id="menuList">
+                <!-- <i class="fa fa-times" ></i> -->
+                <li><a  onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+                 <li><a onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+                <li><a onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a>
+                  <div class="credentials">
+                        UserName:   {{loginUserName}}<br>
+                        Credits:  {{credit}}
+                    </div>
+
+
+            </ul>
+             <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+        onclick="toggleMenu()">
+
+            <!-- <i class="fa fa-bars" ></i> -->
+        </nav>
+        </div>
+        <section class="welcome">
+            <div class="MB">
+                <h1 class="mh">Welcome to BusXRide Customer Services</h1>
+                <p class="sp">Book your seats now at your own ease before hand.So that, you don't miss any important
+                    events and opportuinity.
+                    Enjoy the course of life without worrying about travelling arrangements.</p>
+                 <div class="LOGOUT">
+                    <a  onclick="window.location.href='{{ url_for( 'logout') }}';" class="btns-block ">LOGOUT</a>
+                    <a  onclick="window.location.href='{{ url_for( 'switch_user') }}';" class="btns-block ">SWITCH ACCOUNT</a>
+                 </div>
+            </div>
+        </section>
+        <section class="Services">
+            <div class="US">
+                <h1 class="US-h"><strong>Our Services</strong></h1>
+                <div class="s-boxes">
+                    <div class="con"  id="box-1">
+                        <h1 class="con-h">buy ticket</h1>
+                        <p class="con-p">"To buy tickets click on the attached button"</p>
+                        <a onclick="window.location.href='{{ url_for( 'display_buy_ticket') }}';" class="btns">Buy Tickets</a>
+                    </div>
+                   
+                    <div class="con"id="box-2">
+                        <h1 class="con-h">Refund</h1>
+                        <p class="con-p">"You can request refund  by clicking the attached button."</p>
+                        <a onclick="window.location.href='{{ url_for( 'display_refund_schedule') }}';"  class="btns">Refund</a>
+                    </div>
+                    <div class="con"id="box-3">
+                        <h1 class="con-h">Generate Tickets</h1>
+                        <p class="con-p">"You can generate Ticket here"</p>
+                        <a onclick="window.location.href='{{ url_for( 'GenerateTicket') }}';" class="btns">Generate Ticket</a>
+                    </div>
+                    <div class="con" id="box-4">
+                        <h1 class="con-h">Add Credit</h1>
+                        <p class="con-p">"To add  credit in your account use the attached button"</p>
+                        <a onclick="window.location.href='{{ url_for( 'add_user_credits') }}';" class="btns">Add credit</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="align">Copyright &copy: www.BusXRide.com. All rights Reserved.</div>
+        </footer>
+    </section>
+
+    <script>
+
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href)
+                {
+                    link.setAttribute('aria-current', 'page')
+                }
+
+            })
+            var menuList = document.getElementById('menuList');
+
+        function toggleMenu()
+        {
+            console.log(menuList.style.maxHeight)
+            if(menuList.style.display == "none")
+            {
+                menuList.style.display = "flex";
+            }
+            else{
+                console.log(menuList.style.maxHeight)
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+<script>
+function myFunction(x) {
+  if (!x.matches) { // If media query matches
+    menuList.style.display = "flex";
+  }
+}
+console.log("Hello")
+var x = window.matchMedia("(max-width: 700px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+</script>
+
+
+</body>
+
+</html>

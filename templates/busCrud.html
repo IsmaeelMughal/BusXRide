@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Crud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='confirm.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='busCrud.css')}}">
+</head>
+
+<body>
+    <div class="crud-page">
+        <nav class="navbar background">
+            <div class="logo">
+                <img src={{url_for('static',filename='images/logoM.png' )}} alt="logo">
+                <h1 class="logoh">BusXRide</h1>
+            </div>
+
+            <ul class="nav-list nav-links" id="menuList">
+
+                <li><a  onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+                 <li><a onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+                <li><a onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a>
+                </li>
+
+            </ul>
+            <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+                onclick="toggleMenu()">
+
+        </nav>
+
+        <div class="form-fieldset">
+            <fieldset>
+                <legend>
+                    <h1>Add Bus Information</h1>
+                </legend>
+                <form id="form">
+                    <label for="buscolor">Bus Color:</label><br>
+                    <input type="text" id="buscolor" name="buscolor" placeholder="Enter bus Color"><br><br>
+                    <label for="busmodel">Bus Model:</label><br>
+                    <input type="text" id="busmodel" name="busmodel" placeholder="Enter bus Model"><br><br>
+                    <label for="ticketprice">Bus Ticket Price:</label><br>
+                    <input type="number" id="ticketprice" name="ticketprice" min="0" max="100000" value="0"
+                        onkeypress="return event.charCode>=48 && event.charCode<=57"><br><br>
+                    <span id="msg">
+                    </span><br>
+
+                    <input type="button" onclick="Submit()" value="Submit">
+                </form>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>
+                    <h1>All Buses Information</h1>
+                </legend>
+                <table id="table">
+                    <tr>
+                        <th><b>Bus #</b></th>
+                        <th>Color</th>
+                        <th>Model</th>
+                        <th>Ticket Price</th>
+                        <th></th>
+                    </tr>
+                    {% for i in BusesRecords %}
+                    <tr>
+                        <td data-label="BUS_ID">
+                            {{ i.BUS_ID }}
+                        </td>
+                        <td data-label="MODEL">
+                            {{ i.MODEL }}
+                        </td>
+                        <td data-label="COLOR">
+                            {{ i.COLOR }}
+                        </td>
+                        <td data-label="TICKET_PRICE">
+                            {{ i.TICKET_PRICE }}
+                        </td>
+                        <td>
+                            <button onclick="edit(this)" id="edit-button" value="edit" name="edit_btn">Edit</button>
+                            <button onclick="remove(this)" id="delete-button" value="delete" name="delete_btn">Delete</button>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </table>
+            </fieldset>
+
+            <footer>
+                Copyright &copy: www.BusXRide.com. All rights Reserved.
+            </footer>
+        </div>
+    
+    </div>
+    <script>
+        var latestBusID = {{ latestBusID| tojson}};
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href) {
+                    link.setAttribute('aria-current', 'page')
+                }
+            })
+
+        var menuList = document.getElementById('menuList');
+
+        function toggleMenu() {
+            if (menuList.style.display == "none") {
+                menuList.style.display = "flex";
+            }
+            else {
+                console.log(menuList.style.maxHeight)
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='confirm.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='busCrud.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+
+</html>

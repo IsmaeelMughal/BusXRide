@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund</title>
+
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='BuyTicket1.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='nav.css')}}">
+
+
+
+</head>
+
+<body>
+    <section class="BT-bg">
+        <nav class="navbar background">
+            <div class="logo">
+             <img src={{url_for('static',filename='images/logoM.png')}} alt="logo">
+                 <h1 class="logoh">BusXRide</h1>
+            </div>
+
+            <ul class="nav-list nav-links" id="menuList">
+                <!-- <i class="fa fa-times" ></i> -->
+                <li><a  onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+                <li><a  onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+                <li><a  onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a></li>
+
+            </ul>
+             <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+        onclick="toggleMenu()">
+            <!-- <i class="fa fa-bars" ></i> -->
+        </nav>
+<!--        &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+         <section class="main-form">
+          <form action="/user_dashboard/refund_schedule/select_refund" method="POST">
+                <div class="form-rows">
+                    <div class=" b1 form-h">
+                        <h1 class="b-t">
+                            <centre> To Refund Bus Ticket</centre>
+                        </h1>
+                    </div>
+<!--                    Sources-->
+                    <div id ="BT-so"class=" b1 source">
+                        <label  for="source" class="b-t">Choose a source:</label>
+                        <select id="source" class="expand"  name="source" required>
+                          <option value="">Select Source</option>
+
+                        </select>
+                    </div>
+<!--                    Destination-->
+                    <div class=" b1 destination">
+                        <label  for="destination" class="b-t">Choose a destination:</label>
+                        <select id="destination" class="expand" name="destination" required>
+                             <option value="">Select Destination</option>
+                        </select>
+                    </div>
+<!--                    Date-->
+                    <div class=" b1 date">
+                        <label for="date"  class="b-t">Select Departure Date:</label>
+                        <input type="date" id="date" class="expand" name="date" min='1899-01-01' placeholder="Departure date" required>
+
+                    </div>
+<!--                    Submit-->
+                    <div class="b1"> <input type="submit" class="b-t btns"></div>
+                </div>
+               <script>
+
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href)
+                {
+                    link.setAttribute('aria-current', 'page')
+                }
+
+            })
+            var menuList = document.getElementById('menuList');
+
+        function toggleMenu()
+        {
+            console.log(menuList.style.maxHeight)
+            if(menuList.style.display == "none")
+            {
+                menuList.style.display = "flex";
+            }
+            else{
+                console.log(menuList.style.maxHeight)
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+<script>
+function myFunction(x) {
+  if (!x.matches) { // If media query matches
+    menuList.style.display = "flex";
+  }
+}
+console.log("Hello")
+var x = window.matchMedia("(max-width: 700px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+</script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{url_for('static',filename='BuyTicket.js')}}"></script>
+              <script>
+                  var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("date").setAttribute("min", today);
+              </script>
+            </form>
+        </section>
+<!--        Footer-->
+        <footer>
+            <div class="align">Copyright &copy: www.BusXRide.com. All rights Reserved.</div>
+        </footer>
+    </section>
+
+
+
+</body>
+
+</html>

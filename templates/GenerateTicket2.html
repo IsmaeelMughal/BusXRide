@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusXRide</title>
+<!--    <script>-->
+<!--        var bk_id=sessionStorage.getItem("bookingId");-->
+<!--        var bus_id=sessionStorage.getItem("busId");-->
+<!--        var r_id=sessionStorage.getItem("routeId");-->
+<!--        var sn=sessionStorage.getItem("seatNumber");-->
+<!--        var price=sessionStorage.getItem("price");-->
+<!--        var bk_date=sessionStorage.getItem("BK_DATE");-->
+<!--        var d_dt=sessionStorage.getItem("D_DT");-->
+<!--        var a_dt=sessionStorage.getItem("A_DT");-->
+<!--        var email=sessionStorage.getItem("email");-->
+<!--        var source=sessionStorage.getItem("source");-->
+<!--        var destination=sessionStorage.getItem("destination");-->
+
+
+<!--          console.log(bk_id);-->
+<!--          console.log(email);-->
+<!--          console.log(source);-->
+<!--          console.log(destination);-->
+
+<!--    </script>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='nav.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='GenerateTicket2.css')}}">
+
+</head>
+
+<body>
+    <section class="header-1">
+         <div class="et-3">
+        <nav class="navbar background">
+            <div class="logo">
+             <img src={{url_for('static',filename='images/logoM.png')}} alt="logo">
+                 <h1 class="logoh">BusXRide</h1>
+            </div>
+
+            <ul class="nav-list nav-links" id="menuList">
+                <!-- <i class="fa fa-times" ></i> -->
+                <li><a  onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+                 <li><a onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+                <li><a onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a>
+            </ul>
+             <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+        onclick="toggleMenu()">
+            <!-- <i class="fa fa-bars" ></i> -->
+        </nav>
+            </div>
+        <div class="main-box">
+            <div class="Ticket">
+                <div id="row-1">
+                    <div id="Ticket_h">
+                        <p>Ticket # <p id="bk_id"> booking_id</p></p>
+                    </div>
+                    <div id="bk_date">
+                        <p >Booking Date: <p id="bk_d">bk-date</p>
+                    </div>
+                </div>
+                <div id="email">
+                    E-mail:
+                    <p id="e-Value"> user_email</p>
+                </div>
+                <div class="row-3">
+                    <div class="routes">
+                        <label>Source:</label>
+                        <div id ="source"> <p id="s-Value" class="value">source</p> </div>
+                    </div>
+                    <div class="routes">
+                        <label>Destination:</label>
+                        <div id ="destination"> <p id="d-Value" class="value">destination</p></div>
+
+                    </div>
+                </div>
+                <div class="row-4">
+                <div >Bus #:<p id ="bus_id" class="value">bus_id</p></div>
+                    <div class="dt">Departure Date: <p id="d_dt">Departure_Date_Time</p></div>
+                 <div class="dt">Arrival Date: <p id="A_dt">Arrival_Date_Time:</p></div>
+
+                </div>
+                <div class ='row-5'>
+                 <div>Seat Number:<p id="seat_num" class="value">seat_number</p></div>
+<!--                  <div class="price"> Price:  <p id="p_Value">Price</p></div>-->
+                </div>
+                <hr>
+                <div class="row-6">
+                    <p>Total Charges:</p>
+                     <p id="p2_Value">Price</p>
+                </div>
+
+
+            </div>
+
+            </div>
+
+        <footer>
+            Copyright &copy: www.BusXRide.com. All rights Reserved.
+        </footer>
+    </section>
+    <script>
+
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href)
+                {
+                    link.setAttribute('aria-current', 'page')
+                }
+
+            })
+            var menuList = document.getElementById('menuList');
+
+        function toggleMenu()
+        {
+            console.log(menuList.style.maxHeight)
+            if(menuList.style.display == "none")
+            {
+                menuList.style.display = "flex";
+            }
+            else{
+                console.log(menuList.style.maxHeight)
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+<script>
+function myFunction(x) {
+  if (!x.matches) { // If media query matches
+    menuList.style.display = "flex";
+  }
+}
+console.log("Hello")
+var x = window.matchMedia("(max-width: 700px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+</script>
+<script src="{{url_for('static',filename='GenerateTicket2.js')}}"></script>
+
+</body>
+
+</html>

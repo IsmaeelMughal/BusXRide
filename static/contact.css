@@ -1,0 +1,124 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.contact-page{
+    /* background-image: url('images/wooden-background.jpg');
+    background-repeat: repeat-y;
+    box-sizing: border-box; */
+}
+/*  rgb(4 5 16  / 55%), rgb(4 5 16 / 25%)*/
+.contact-cover{
+    width: 100%;
+    min-height: 80vh;
+    background-image: linear-gradient(rgb(19 32 68 / 15%), rgb(2 2 10)),url('images/contact-us.jpg');
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-cover-content-box{
+    height: 300px;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.contact-cover-content-box h1{
+    text-align: center;
+    font-style: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 62px;
+}
+.contact-info{
+    min-height: 300px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+.contact-info p{
+    font-style: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 21px;
+}
+.facebook, .instagram, .email, .phone{
+    transition: 0.2s;
+    width:262px;
+    border-radius: 12px;
+    height: 70px;
+    cursor: pointer;
+}
+.facebook:hover, .instagram:hover, .email:hover, .phone:hover{
+    border: 2px solid rgb(6, 60, 0);
+    background-color: rgb(6, 60, 0);
+    opacity: 60%;
+    box-shadow: 12px 12px 2px 1px rgb(6 60 0 / 40%);
+
+}
+.feedback-section{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgb(0 0 0), rgb(4 5 16 / 25%)),url('images/ideas.jpg');
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.feedback-section form{
+    
+    width:90%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+.feedback-input-group{
+    margin-bottom: 30px;
+}
+.feedback-section textarea , .feedback-section input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background: transparent;
+    color: white;
+    font-size: 15px;
+    border: 1px solid white;
+    cursor: text;
+} 
+.feedback-section button{
+    padding: 10px 0;
+    color: white;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    width:100%;
+    border: 1px solid white;
+    /* font-size: 18px; */
+}
+.feedback-section button:hover{
+    border: none;
+    background-color: white;
+    opacity: 0.6;
+    background-color: rgb(6, 60, 0);
+    box-shadow: 12px 12px 2px 1px rgb(6 60 0 / 40%);
+
+}
+
+@media (max-width:700px){
+
+    .contact-info{
+        
+        height: 300px;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        color: white;
+    }
+}

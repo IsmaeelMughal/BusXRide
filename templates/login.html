@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form-style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css')}}">
+</head>
+
+<body>
+    
+    <nav class="navbar background">
+        <div class="logo">
+            <img src={{url_for('static',filename='images/logoM.png')}} alt="logo">
+            <h1 class="logoh">BusXRide</h1>
+        </div>
+
+        <ul class="nav-list nav-links" id="menuList">
+            <!-- <i class="fa fa-times" ></i> -->
+            <li><a onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+            <li><a onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+            <li><a onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a>
+            </li>
+
+        </ul>
+        <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+            onclick="toggleMenu()">
+        <!-- <i class="fa fa-bars" ></i> -->
+    </nav>
+
+    <form action="/login_processing" method="POST" class="login-form">
+        <h1 class="playfair-font center  margin">Login Form</h1>
+        {% if error %}
+        <p class="error"> {{error}} </p>
+        {% endif %}
+        <table>
+            <tr>
+                <th><label for="email">Email: </label></th>
+                <td><input type="email" id="email" name="email" placeholder="Enter your email"><br></td>
+            </tr>
+            <tr>
+                <th><label for="password">Password: </label></th>
+                <td><input type="password" id="password" name="password" placeholder="Enter your password"><br></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>create new Account <a onclick="window.location.href='{{ url_for( 'display_signup') }}';" >Sign up</a></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+    <footer>
+        Copyright &copy: www.BusXRide.com. All rights Reserved.
+    </footer>
+    <script>
+
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href) {
+                    link.setAttribute('aria-current', 'page')
+                }
+
+            })
+        var menuList = document.getElementById('menuList');
+
+
+        function toggleMenu() {
+
+            if (menuList.style.display == "none") {
+                menuList.style.display = "flex";
+            }
+            else {
+
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

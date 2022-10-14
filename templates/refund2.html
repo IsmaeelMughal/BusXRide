@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyTicket</title>
+
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='BuyTicket2.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='nav.css')}}">
+
+
+
+
+</head>
+
+<body>
+
+    <section class="BT-bg">
+        <div class="et-3">
+        <nav class="navbar background">
+            <div class="logo">
+             <img src={{url_for('static',filename='images/logoM.png')}} alt="logo">
+                 <h1 class="logoh">BusXRide</h1>
+            </div>
+
+            <ul class="nav-list nav-links" id="menuList">
+                <!-- <i class="fa fa-times" ></i> -->
+                <li><a  onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+                <li><a  onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+                <li><a  onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a></li>
+
+            </ul>
+             <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+        onclick="toggleMenu()">
+            <!-- <i class="fa fa-bars" ></i> -->
+        </nav>
+            </div>
+<!--        &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+        <section id="main-section">
+
+            <div class="MB">
+                <h1 class="mh">BusXRide Bus Schedule For Refund </h1>
+
+            </div>
+            <div class="route MB">
+                <h3 class="route-h">Route: {{source}} to {{destination}}</h3>
+
+            </div>
+
+
+        </section>
+        <section class="Table">
+            <div class ="T-con">
+            <table style="width: 100% ">
+                <tr>
+                    <th><b>Bus No</b></th>
+                    <th>Departure Time</th>
+                     <th>Arrival Time</th>
+                    <th>ROUTE_ID</th>
+                    <th>Booking</th>
+                  </tr>
+                    {%  for i  in d1 %}
+                    <tr>
+                        <td data-label="Bus No">
+                            {{i.BUS_ID}}
+                        </td>
+                        <td data-label="Total Seats">
+                            {{i.DEPARTURE_DATE_TIME}}
+                        </td>
+                        <td data-label="Departure Time">
+                            {{i.ARRIVAL_DATE_TIME}}
+                        </td>
+                         <td  data-label="Arrival Time">
+                            {{i.ROUTE_ID}}
+                        </td>
+                        <td>
+                           <a onClick="onBook(' {{i.BUS_ID}}', '{{i.DEPARTURE_DATE_TIME}}', ' {{i.ARRIVAL_DATE_TIME}}', ' {{i.ROUTE_ID}}')" class="btns">REFUND</a>
+                        </td>
+
+
+                    </tr>
+                    {%  endfor %}
+                </table>
+                </div>
+        </section>
+<!--        Footer-->
+        <footer>
+            <div class="align">Copyright &copy: www.BusXRide.com. All rights Reserved.</div>
+        </footer>
+    </section>
+ <script>
+
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href)
+                {
+                    link.setAttribute('aria-current', 'page')
+                }
+
+            })
+            var menuList = document.getElementById('menuList');
+
+        function toggleMenu()
+        {
+            console.log(menuList.style.maxHeight)
+            if(menuList.style.display == "none")
+            {
+                menuList.style.display = "flex";
+            }
+            else{
+                console.log(menuList.style.maxHeight)
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+<script>
+function myFunction(x) {
+  if (!x.matches) { // If media query matches
+    menuList.style.display = "flex";
+  }
+}
+console.log("Hello")
+var x = window.matchMedia("(max-width: 700px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+function onBook(a,b,c,d){
+var RowInfo={
+    "BusID":a,
+    "DepartureTime":b,
+    "ArrivalTime":c,
+    "RouteID":d
+};
+
+$.ajax({
+    url:"/RowInfo",
+    type:'POST',
+    contentType: 'application/JSON',
+    data: JSON.stringify(RowInfo)
+});
+window.location.href='{{ url_for( 'refund') }}';
+}
+<!--window.location.href='{{ url_for( 'RowInfo') }}';}-->
+<!--const request = new XMLHttpRequest();-->
+<!--request.open('POST','/RowInfo/${JSON.stringify(RowInfo)}')-->
+<!--request.send()-->
+<!--}-->
+</script>
+ </body>
+
+</html>

@@ -1,0 +1,215 @@
+.BT-bg {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url("images/BusType1.jpg");
+    background-position:center;
+    background-size:cover;
+    position:relative;
+}
+input[type=text], select{
+  width: 70%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.expand
+{
+    width: 283px;
+    height: 34px;
+}
+
+label {
+  padding: 11px 12px 12px 0;
+  display: inline-block;
+}
+.row {
+    border: #676767 2px solid;
+    background: #f1f0ec;
+    height: 56px;
+    padding-left: 14px;
+    border-radius: 15px;
+    margin-bottom: 7px;
+}
+input[type=submit] {
+    background-color: #192520;
+    color: white;
+    padding: 9px 20px;
+    border: white 4px solid;
+    border-radius: 4px;
+    border-style: double;
+    cursor: pointer;
+    font-size: 18px;
+    float: center;
+    position: fixed;
+    left: 46%;
+    width: 126px;
+    margin-top: 8px;
+    /* top: -1px; */
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+#header {
+    text-align: center;
+    font-size: 31px;
+    font-style: italic;
+    font-weight: bold;
+}
+.container {
+    border-radius: 31px;
+    border: azure 2px dolid;
+    border: #13130d 14px solid;
+    border-style: double;
+    background-color: #f2f2f2;
+    padding: 34px;
+    width: 45%;
+    height: 60%;
+    position: absolute;
+    top: 23%;
+    left: 25%;
+}
+.left {
+    float: left;
+    width: 38%;
+    margin-top: 6px;
+}
+
+.right {
+    float: left;
+    width: 62%;
+    margin-top: 6px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ @media (max-width:380px)
+ {
+    .container {
+    border-radius: 31px;
+    border: azure 2px dolid;
+    border: #13130d 14px solid;
+    border-style: double;
+    background-color: #f2f2f2;
+    padding: 29px;
+    width: 58%;
+    height: 65%;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+  #header {
+    text-align: center;
+    font-size: 19px;
+    font-style: italic;
+    font-weight: bold;
+}
+.row {
+    border: #676767 2px solid;
+    background: #f1f0ec;
+    height: 73px;
+    width: 100%;
+    padding-left: 19px;
+    border-radius: 15px;
+    margin-bottom: 9px;
+    display: flex;
+    flex-flow: column;
+}
+.left {
+    float: \; width: 37%;
+    font-size: 12px;
+    margin-top: 0px;
+    text-align: center;
+    width: 100%;
+}
+.right {
+    /* float: left; */
+    width: 100%;
+    margin-top: 6px;
+    height: 0px;
+}
+input[type=text], select {
+    width: 88%;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+input[type=submit] {
+    background-color: #192520;
+    color: white;
+    padding: 12px 20px;
+    border: white 4px solid;
+    border-radius: 4px;
+    border-style: double;
+    cursor: pointer;
+    font-size: 14px;
+    float: center;
+    position: fixed;
+    left: 37%;
+    width: 92px;
+    margin-top: 11px;
+    /* top: -1px; */
+}
+ }
+@media (max-width:700px) and (min-width:380px)
+{
+.container {
+    border-radius: 31px;
+    border: azure 2px solid;
+    border: #13130d 14px solid;
+    border-style: double;
+    background-color: #f2f2f2;
+    padding: 24px;
+    width: 64%;
+    height: 60%;
+    position: absolute;
+    top: 23%;
+    left: 11%;
+}
+    #header {
+    text-align: center;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: bold;
+}
+.row {
+    border: #676767 2px solid;
+    background: #f1f0ec;
+    height: 70px;
+    padding-left: 14px;
+    border-radius: 15px;
+    margin-bottom: 14px;
+}
+.left {
+    float: left;
+    width: 40%;
+    font-size: 14px;
+    margin-top: 6px;
+}
+.right {
+    float: left;
+    width: 59%;
+    margin-top: 6px;
+}
+input[type=submit] {
+    background-color: #192520;
+    color: white;
+    padding: 12px 20px;
+    border: white 4px solid;
+    border-radius: 4px;
+    border-style: double;
+    cursor: pointer;
+    font-size: 16px;
+    float: center;
+    position: fixed;
+    left: 37%;
+    width: 126px;
+    margin-top: 11px;
+    /* top: -1px; */
+}
+}

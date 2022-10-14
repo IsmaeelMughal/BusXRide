@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("images/bus1.jpg");
+    background-position:center;
+    background-size:cover;
+    position:relative;
+}
+
+.logo {
+    width: 16%;
+    display: flex;
+    justify-content: center;
+    text-align: center
+}
+
+.logo img {
+    width: 40%;
+    height: 104%;
+    border: white;
+    border-radius: 58%;
+
+
+}
+
+.navbar {
+    border: black 2px;
+    display: flex;
+    padding: 0px 0px;
+    margin: 0px 0px;
+    width: 100%;
+    height: 58px;
+    position:fixed;
+    top:0;
+}
+
+.nav-list {
+    width: 50%;
+    /* background-color: rgb(25, 15, 2)  ; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.nav-link[aria-current="page"]{
+
+    color:#4f8165;
+
+}
+
+.nav-list li {
+
+    list-style: none;
+    padding: 26px 30px;
+
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: rgb(235, 227, 227);
+
+
+}
+
+.nav-list li ::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #4f8165;
+    display: block;
+    margin: auto;
+
+}
+
+.nav-list li :hover::after {
+    width: 100%;
+
+}
+
+.btn {
+    background-color: #4f8165;
+    border: rgb(56, 2, 2) solid 2px;
+    margin: 0px 10px;
+    padding: 10px 3px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    font-size: 10px;
+    padding: 11px 20px;
+    justify-content: cebter;
+    justify-content: center;
+    height: 24%;
+
+
+
+}
+
+.btn:hover {
+    color: black;
+
+    background-color: white
+}
+
+
+.rightNav {
+    /* display: flex;
+    width: 30%;
+    justify-content: flex-end;
+    text-align: right;
+    margin: 12px; */
+
+
+    width: 30%;
+    justify-content: center;
+   position:absolute;
+   top: 95%;
+    left: 34%;
+    align-content: center;
+
+
+}
+
+.background{
+    background: rgba(0, 0, 0, 0.7) url("images/bus1.jpg");
+    background-size: cover;
+    background-blend-mode: darken; }
+
+
+.fS{
+    height: 88vh;
+}
+
+.firstHalf {
+
+
+    width: 90%;
+    color:white;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-60%);
+    text-align:center;
+
+
+
+}
+
+.firstHalf h1 {
+    font-size:62px;
+
+}
+.firstHalf p {
+    margin:10px 0 40px;
+    font-size: 14px;
+    color:#fff;
+
+}
+.footer{
+
+    background-color: #4f8165;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    left:37%;
+
+}
+.align{
+    display:block;
+    text-align: center;
+    background-color:blanchedalmond;
+
+}
+
+.menu-icon{
+    
+    cursor: pointer;
+    display: none;
+}
+
+ @media (max-width:430px){
+    .menu-icon{
+        
+        display: none;
+    }
+    .navbar {
+        border: black 2px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0px;
+        margin: 0px 0px;
+        width: 100%;
+        height: 47px;
+        position: fixed;
+        top: 0;
+    }
+
+    .logo {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .nav-list li {
+        list-style: none;
+        padding: 7px 14px;
+    }
+    .nav-list li a {
+        text-decoration: none;
+        color: rgb(235, 227, 227);
+        font-size: 6px;
+    }
+    .rightNav {
+        display: flex;
+        /* background-color: rgb(255, 240, 245); */
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        margin: 0px;
+    }
+    .btn {
+        background-color: #4f8165;
+        border: rgb(56, 2, 2) solid 2px;
+        margin: 0px 10px;
+        padding: 10px 3px;
+        text-decoration: none;
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        cursor: pointer;
+        font-size: 6px;
+        padding: 8px 10px;
+
+        justify-content: center;
+        height: 24%;
+        width:20px;
+    }
+    .firstHalf h1 {
+        font-size: 18px;
+    }
+    .firstHalf p {
+        margin: 10px 0 40px;
+        font-size: 10px;
+        color: #fff;
+    }
+    footer {
+        background-color: #4f8165;
+        position: fixed;
+        font-size: 8px;
+        bottom: 0;
+        text-align: center;
+        left: 30%;
+    }
+
+
+}
+@media (max-width:700px) and (min-width:430px){
+    .menu-icon{
+        
+        display: block;
+    }
+    .firstHalf h1{
+        font-size:20px;
+    }
+    .nav-list li {
+
+        display:block
+
+    }
+    .nav-list  {
+
+        position:absolute;
+        background:#4f8165;
+        height:100vh;
+        width:200px;
+        top:0;
+        right:0 ;
+        text-align: left;
+        z-index:2;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .rightNav {
+        width: 39%;
+        justify-content: center;
+        position: absolute;
+        top: 95%;
+        left: 34%;
+        align-content: center;
+        display:flex;
+        flex-direction: column;
+    }
+    .firstHalf {
+        width: 41%;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translate(-50%,-60%);
+        text-align: center;
+    }
+    footer {
+        background-color: #4f8165;
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+        left: 15%;
+    }
+    .btn {
+        background-color: #4f8165;
+        border: rgb(56, 2, 2) solid 2px;
+        margin: 11px 10px;
+        padding: -7px 3px;
+        text-decoration: none;
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        cursor: pointer;
+        font-size: 10px;
+        padding: 12px 15px;
+        justify-content: cebter;
+        justify-content: center;
+        height: 24%;
+    }
+ }

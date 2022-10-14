@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusXRide</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='nav.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{url_for('static',filename='GenerateTicket.css')}}">
+
+</head>
+
+<body>
+    <section class="header-1">
+       <div class="et-3">
+        <nav class="navbar background">
+            <div class="logo">
+             <img src={{url_for('static',filename='images/logoM.png')}} alt="logo">
+                 <h1 class="logoh">BusXRide</h1>
+            </div>
+
+            <ul class="nav-list nav-links" id="menuList">
+                <!-- <i class="fa fa-times" ></i> -->
+                <li><a  onclick="window.location.href='{{ url_for( 'home_page') }}';" class="nav-link">Home</a></li>
+                <li><a  onclick="window.location.href='{{ url_for( 'contact') }}';" class="nav-link">Contact Us</a></li>
+                <li><a  onclick="window.location.href='{{ url_for( 'about') }}';" class="nav-link">About US</a></li>
+
+            </ul>
+             <img src="{{ url_for('static', filename='images/hamburger.png')}}" alt="logo" class="menu-icon"
+        onclick="toggleMenu()">
+            <!-- <i class="fa fa-bars" ></i> -->
+        </nav>
+       </div>
+        <section id="main-section">
+            <div class="MB">
+                <h1 class="mh">Tickets Detail </h1>
+
+            </div>
+            <section class="Table">
+            <div class ="T-con">
+            <table style="width: 100% ">
+                <tr>
+                    <th><b>Booking #</b></th>
+                    <th>Bus #</th>
+                    <th>Route #</th>
+                    <th>Departure</th>
+                    <th>Seat #</th>
+                    <th>Generate</th>
+                </tr>
+                {% if d1|length==0 %}
+                <div class="error"><p>No seats has been Booked yet</p></div>
+                {%else%}
+                    {%  for i  in d1 %}
+                    <tr>
+                        <td data-label="BOOKING-ID">
+                            {{ i.BOOKING_ID }}
+                        </td>
+                        <td data-label="BUS_ID">
+                            {{ i.BUS_ID }}
+                        </td>
+                        <td data-label="ROUTE_ID">
+                            {{ i.ROUTE_ID }}
+                        </td>
+                        <td data-label="DEPARTURE_DATE">
+                            {{ i.DEPARTURE_DATE }}
+                        </td>
+                        <td data-label="SEAT_NUMBER">
+                            {{ i.SEAT_NUMBER }}
+                        </td>
+                        <td>
+                           <a onClick="onBook('{{i.BOOKING_ID}}', '{{i.BUS_ID}}','{{i.ROUTE_ID}}','{{i.SEAT_NUMBER}}'
+                           ,'{{i.PRICE}}','{{i.BOOKING_DATE}}','{{i.DEPARTURE_DATE_TIME}}','{{i.ARRIVAL_DATE_TIME}}','{{i.USER_EMAIL}}'
+                           ,'{{i.SOURCE}}','{{i.DESTINATION}}')"
+                              class="btns">GENERATE</a><br>
+                        </td>
+                    </tr>
+                    {%  endfor %}
+                {%endif%}
+                </table>
+            </div>
+            </section>
+        </section>
+
+        <footer>
+            Copyright &copy: www.BusXRide.com. All rights Reserved.
+        </footer>
+    </section>
+    <script>
+        function onBook(BK_ID,BUS_ID,R_ID,SN,PRICE,BK_DATE,D_DT,A_DT,u_email,source,dest){
+            sessionStorage.setItem("bookingId",BK_ID);
+            sessionStorage.setItem("busId",BUS_ID);
+
+            sessionStorage.setItem("seatNumber",SN);
+            sessionStorage.setItem("price",PRICE);
+            sessionStorage.setItem("BK_DATE",BK_DATE);
+            sessionStorage.setItem("D_DT",D_DT);
+            sessionStorage.setItem("A_DT",A_DT);
+            sessionStorage.setItem("email",u_email);
+            sessionStorage.setItem("source",source);
+            sessionStorage.setItem("destination",dest);
+
+            window.location.href='http://127.0.0.1:5000/user_dashboard/generate_tickets/ticket';
+
+
+}
+    </script>
+    <script>
+
+        document.querySelectorAll('.nav-link').forEach
+            (link => {
+                if (link.href === window.location.href)
+                {
+                    link.setAttribute('aria-current', 'page')
+                }
+
+            })
+            var menuList = document.getElementById('menuList');
+
+        function toggleMenu()
+        {
+            console.log(menuList.style.maxHeight)
+            if(menuList.style.display == "none")
+            {
+                menuList.style.display = "flex";
+            }
+            else{
+                console.log(menuList.style.maxHeight)
+                menuList.style.display = "none";
+            }
+        }
+    </script>
+<script>
+function myFunction(x) {
+  if (!x.matches) { // If media query matches
+    menuList.style.display = "flex";
+  }
+}
+console.log("Hello")
+var x = window.matchMedia("(max-width: 700px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.about-page{
+    background-image: url('images/wooden-background.jpg');
+    background-repeat: repeat-y;
+}
+.cover-section{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgb(4 5 16  / 55%), rgb(4 5 16 / 25%)),url('images/double-bus.jpg');
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+}
+
+
+.cover-section-content{
+    padding:2%;
+    margin: auto;
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    width:auto;
+    color:white;
+    box-sizing: border-box;
+    flex-direction: column;
+    
+
+}
+.cover-section-content h1{
+    text-align: center;
+    font-style: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 62px;
+}
+.about{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+}
+.about-row{
+    margin-top: 8%; 
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-bottom: 8%;
+    display: flex;
+    justify-content: space-around;
+    min-height: 100vh;
+
+}
+img{
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+.about-col1{
+    
+    background-image:  url('images/yellow-bus.jpg');
+    background-size: cover;
+    cursor: pointer;
+    width: 70%;
+    max-height: 100vh;
+    box-sizing: border-box;
+    border-radius: 24px;
+}
+.about-col1:hover{
+    box-shadow: 12px 12px 2px 1px rgb(23 3 62 / 20%);
+}
+.about-col2{
+    width: 60%;
+    min-height: 100vh;
+    margin-left: 20px;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.about-col2 h1{
+    text-align: center;
+    font-style: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 42px;
+}
+.about-col2 p{
+    text-align: center;
+    font-style: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22px;
+
+}
+.services-section h1{
+    margin-bottom: 5%;
+    text-align: center;
+    font-style: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 42px;
+
+}
+.services{
+    display: flex;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+.services-col1 {
+    background-image: linear-gradient(rgb(4 5 16  / 55%), rgb(4 5 16 / 25%)), url('images/seats.jpg');
+    background-size: cover;
+    width: 30%;
+    border-radius: 24px;
+    min-height: 100vh;
+    transition: 0.6s;
+    cursor: pointer;
+}
+.services-col1:hover ,.services-col2:hover, .services-col3:hover {
+    box-shadow: 12px 12px 2px 1px rgb(23 3 62 / 20%);
+}
+.services-col3{
+    background-image:  linear-gradient(rgb(4 5 16  / 55%), rgb(4 5 16 / 25%)),url('images/sandwich.jpg');
+    background-size: cover;
+    border-radius: 24px;
+    width: 30%;
+    min-height: 100vh;
+    transition: 0.6s;
+    cursor: pointer;
+}
+.services-col1 h1,.services-col2 h1, .services-col3 h1 {
+    margin-top: 20%;
+    color:white;
+    text-align: center;
+    font-style: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 42px;
+}
+.services-col1 p,.services-col2 p, .services-col3 p ,.cover-section p{
+    margin-top:5%;
+    color:white;
+    text-align: center;
+    font-style: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22px;
+}
+.services-col2{
+    background-image: linear-gradient(rgb(4 5 16  / 55%), rgb(4 5 16 / 25%)), url('images/hostess.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 30%;
+    min-height: 100px;
+    border-radius: 24px;
+    transition: 0.6s;
+    cursor: pointer;
+}
+@media (max-width:700px){
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    .about-page{
+        background-image: url('images/wooden-background.jpg');
+        background-size: cover;
+        background-position: center;
+        box-sizing: border-box;
+        background-repeat: repeat-x;
+       
+    }
+    .services{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .services-col1 {
+        background-image: linear-gradient(rgb(4 5 16  / 55%), rgb(4 5 16 / 25%)), url('images/seats.jpg');
+        background-size: cover;
+        width: 100%;
+        border-radius: 24px;
+        min-height: 100vh;
+        transition: 0.6s;
+        cursor: pointer;
+        margin-bottom: 2%;
+    }
+    .services-col2{
+        background-image: linear-gradient(rgb(4 5 16  / 55%), rgb(4 5 16 / 25%)), url('images/hostess.jpg');
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 24px;
+        transition: 0.6s;
+        cursor: pointer;
+        margin-bottom: 2%;
+    }
+    .services-col3{
+        background-image:  linear-gradient(rgb(4 5 16  / 55%), rgb(4 5 16 / 25%)),url('images/sandwich.jpg');
+        background-size: cover;
+        border-radius: 24px;
+        width: 100%;
+        min-height: 100vh;
+        transition: 0.6s;
+        cursor: pointer;
+    }
+    .cover-section-content{
+        padding:2%;
+        margin: auto;
+        display: flex;
+        height: 80vh;
+        align-items: center;
+        justify-content: center;
+        width:auto;
+        color:white;
+        box-sizing: border-box;
+        flex-direction: column;
+    }
+
+}
+
+
+
